@@ -1,0 +1,10 @@
+kind: ImagePolicy
+metadata:
+  name: hive
+  namespace: flux-system
+spec:
+  imageRepositoryRef:
+    name: hive
+  policy:
+    semver:
+      range: ">=0.3.0"
