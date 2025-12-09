@@ -6,5 +6,3 @@ resources:
   - role.yaml 
   - sa.yaml
   - rb.yaml
-  - service.yaml
-  - ingress.yaml

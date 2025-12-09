@@ -55,7 +55,7 @@ variable "node_count" {
 variable "machine_type" {
   description = "GCE machine type for nodes"
   type        = string
-  default     = "e2-medium"
+  default     = "e2-standard-4"
 }
 
 variable "disk_size_gb" {

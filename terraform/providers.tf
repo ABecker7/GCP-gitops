@@ -27,15 +27,25 @@ terraform {
 provider "google" {
   project     = var.project_id
   region      = var.region
-  credentials = file("../../gitops-480517-3e50440109d1.json")
+  credentials = file("~/gitops-480517-3e50440109d1.json")
 }
 
 data "google_client_config" "default" {}
 
 provider "kubernetes" {
-  host                   = "https://${google_container_cluster.primary.endpoint}"
+  load_config_file = false
+  host             = "https://${google_container_cluster.primary.endpoint}"
   token                  = data.google_client_config.default.access_token
   cluster_ca_certificate = base64decode(google_container_cluster.primary.master_auth[0].cluster_ca_certificate)
+  #exec {
+  #  api_version = "client.authentication.k8s.io/v1beta1"
+  #  command     = "gke-cloud-auth-plugin"
+  #  args = [
+  #    "get-token",
+  #    "--cluster", google_container_cluster.primary.name,
+  #    "--location", google_container_cluster.primary.location,
+  #  ]
+  #}
 }
 
 provider "helm" {
@@ -48,11 +58,25 @@ provider "helm" {
 
 
 provider "flux" {
+  
   kubernetes = {
     host                   = "https://${google_container_cluster.primary.endpoint}"
     token                  = data.google_client_config.default.access_token
     cluster_ca_certificate = base64decode(google_container_cluster.primary.master_auth[0].cluster_ca_certificate)
   }
+  #  kubernetes = {
+  #    host                   = "https://${google_container_cluster.primary.endpoint}"
+  #    cluster_ca_certificate = base64decode(google_container_cluster.primary.master_auth[0].cluster_ca_certificate)
+  #    exec = {
+  #      api_version = "client.authentication.k8s.io/v1beta1"
+  #      command     = "gke-gcloud-auth-plugin"
+  #      args = [
+  #        "get-token",
+  #        "--cluster", google_container_cluster.primary.name,
+  #        "--location", google_container_cluster.primary.location,
+  #      ]
+  #    }
+  #  }
   git = {
     url = "https://github.com/${var.github_owner}/${var.repository_name}.git"
     http = {
