@@ -6,3 +6,4 @@ resources:
   - role.yaml 
   - sa.yaml
   - rb.yaml
+  - services.yaml
