@@ -1,0 +1,8 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: hive 
+  namespace: flux-system
+spec:
+  image: ghcr.io/abecker7/hivebox/abecker7/hive-docker
+  interval: 1m
