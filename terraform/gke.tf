@@ -83,12 +83,12 @@ resource "google_container_cluster" "primary" {
   #    enable_components = ["SYSTEM_COMPONENTS", "WORKLOADS"]
   #  }
   #
-  monitoring_config {
-    enabled_components = ["SYSTEM_COMPONENTS", "WORKLOADS"]
-    managed_prometheus {
-      enabled = true
-    }
-  }
+  #monitoring_config {
+  #  enable_components = ["SYSTEM_COMPONENTS", "WORKLOADS"]
+  #  managed_prometheus {
+  #    enabled = true
+  #  }
+  #}
 
   resource_labels = {
     environment = "production"
