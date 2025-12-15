@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: private-reg
+  namespace: development
+spec: 
+  containers:
+  - name: private-reg-container
+    image: ghcr.io/abecker7/hivebox:1.0.3
+  imagePullSecrets:
+  - name: ghcr-secret
