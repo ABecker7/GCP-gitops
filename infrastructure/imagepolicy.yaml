@@ -7,4 +7,4 @@ spec:
     name: hive
   policy:
     semver:
-      range: ">=0.3.0"
+      range: ">=1.0.0"

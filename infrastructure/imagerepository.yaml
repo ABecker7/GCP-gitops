@@ -4,5 +4,7 @@ metadata:
   name: hive 
   namespace: flux-system
 spec:
-  image: ghcr.io/abecker7/hivebox/abecker7/hive-docker
+  image: ghcr.io/abecker7/hivebox
   interval: 1m
+  secretRef:
+    name: ghcr-secret
