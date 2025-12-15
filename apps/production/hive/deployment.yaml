@@ -21,3 +21,5 @@ spec:
               containerPort: 5050 
               hostPort: 5050
               protocol: TCP
+          imagePullSecrets:
+          - name: ghcr-secret
