@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
-metadata: 
-  name: hive 
+metadata:
+  name: hive
 spec:
   replicas: 3
   selector:
@@ -10,16 +10,16 @@ spec:
   template:
     metadata:
       labels:
-        app: hive 
+        app: hive
     spec:
       containers:
         - name: hive
-          image: ghcr.io/abecker7/hivebox:1.0.3 # {"$imagepolicy": "flux-system:hive"}
+          image: ghcr.io/abecker7/hivebox:1.0.5 # {"$imagepolicy": "flux-system:hive"}
           imagePullPolicy: IfNotPresent
-          ports: 
-            - name: hive 
-              containerPort: 5050 
+          ports:
+            - name: hive
+              containerPort: 5050
               hostPort: 5050
               protocol: TCP
       imagePullSecrets:
-      - name: ghcr-secret
+        - name: ghcr-secret
