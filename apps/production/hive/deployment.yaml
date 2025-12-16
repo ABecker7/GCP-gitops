@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: hive
-          image: ghcr.io/abecker7/hivebox:1.0.7 # {"$imagepolicy": "flux-system:hive"}
+          image: ghcr.io/abecker7/hivebox:1.0.8 # {"$imagepolicy": "flux-system:hive"}
           imagePullPolicy: IfNotPresent
           ports:
             - name: hive
