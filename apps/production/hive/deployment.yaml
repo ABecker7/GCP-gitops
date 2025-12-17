@@ -21,5 +21,8 @@ spec:
               containerPort: 5050 
               hostPort: 5050
               protocol: TCP
+          envFrom:
+          - secretRef:
+              name: db-credentials
       imagePullSecrets:
       - name: ghcr-secret

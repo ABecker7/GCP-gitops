@@ -4,7 +4,7 @@ resource "google_container_cluster" "primary" {
   name     = "${var.cluster_name}-${random_id.cluster_suffix.hex}"
   location = var.region
 
-  deletion_protection = false
+  deletion_protection      = false
   remove_default_node_pool = true
   initial_node_count       = 1
 

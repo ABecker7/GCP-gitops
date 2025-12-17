@@ -10,6 +10,12 @@ variable "region" {
   default     = "us-central1"
 }
 
+variable "zone" {
+  description = "GCP zone for nodes"
+  type        = string
+  default     = "us-central1-a"
+}
+
 variable "cluster_name" {
   description = "Name of the GKE cluster"
   type        = string
@@ -129,4 +135,22 @@ variable "target_path" {
   description = "Path within the repo to sync cluster state"
   type        = string
   default     = "clusters/production"
+}
+
+variable "db_tier" {
+  description = "The machine type to use for the database instance"
+  type        = string
+  default     = "db-f1-micro"
+}
+
+variable "db_name" {
+  description = "Name of the database to create"
+  type        = string
+  default     = "app_db"
+}
+
+variable "db_user" {
+  description = "Username for the database user"
+  type        = string
+  default     = "app_user"
 }
